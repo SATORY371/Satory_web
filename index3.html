@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de un Pentágono</title>
+</head>
+<body>
+    <h1>Calculadora del Área de un Pentágono Regular</h1>
+    <form onsubmit="calcularArea(event)">
+        <label for="lado">Longitud del lado (cm):</label>
+        <input type="number" id="lado" required>
+        <label for="apotema">Apotema (cm):</label>
+        <input type="number" id="apotema" required>
+        <button type="submit">Calcular</button>
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularArea(event) {
+            event.preventDefault();
+            const lado = document.getElementById('lado').value;
+            const apotema = document.getElementById('apotema').value;
+            const perimetro = lado * 5;
+            const area = (perimetro * apotema) / 2;
+            document.getElementById('resultado').textContent = `El área del pentágono es ${area.toFixed(2)} cm².`;
+        }
+    </script>
+</body>
+</html>

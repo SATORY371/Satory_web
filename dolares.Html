@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Soles a Dólares</title>
+</head>
+<body>
+    <h1>Conversor de Moneda</h1>
+    <form onsubmit="convertirMoneda(event)">
+        <label for="soles">Monto en soles (PEN):</label>
+        <input type="number" id="soles" required>
+        <label for="tipoCambio">Tipo de cambio (1 USD = PEN):</label>
+        <input type="number" id="tipoCambio" value="3.8" step="0.01" required>
+        <button type="submit">Convertir</button>
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        function convertirMoneda(event) {
+            event.preventDefault();
+            const soles = parseFloat(document.getElementById('soles').value);
+            const tipoCambio = parseFloat(document.getElementById('tipoCambio').value);
+            if (isNaN(soles) || isNaN(tipoCambio) || tipoCambio <= 0) {
+                document.getElementById('resultado').textContent = "Por favor, ingrese valores válidos.";
+                return;
+            }
+            const dolares = soles / tipoCambio;
+            document.getElementById('resultado').textContent = `El monto equivale a $${dolares.toFixed(2)} USD.`;
+        }
+    </script>
+</body>
+</html>
