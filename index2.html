@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <marquee><h5>SATORY</h5></marquee>
-    
-    <title>Estilos Personalizados</title>
+    <title>SATORY SPACE</title>
+    <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
     <style>
         
         body {
@@ -37,26 +36,33 @@
             height: 100%;
             z-index: -1; /* Asegura que este color quede detrás del contenido */
         }
-        .esquina-superior-izquierda, .esquina-inferior-derecha, .esquina-superior-derecha {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-        }
-        .esquina-superior-izquierda {
-            top: 10px;
-            left: 10px;
-        }
-        .esquina-superior-derecha{
-            top: 10px;
-            left: 1468px;
+        .esquina-superior-izquierda, .esquina-inferior-derecha, 
+.esquina-superior-derecha, .esquina-inferior-izquierda {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+}
 
-        }
+.esquina-superior-izquierda {
+    top: 10px;
+    left: 10px;
+}
 
-        .esquina-inferior-derecha {
-            bottom: 10px;
-            right: 10px;
-        }
+.esquina-superior-derecha {
+    top: 10px;
+    right: 10px;
+}
+
+.esquina-inferior-izquierda {
+    bottom: 10px;
+    left: 10px;
+}
+
+.esquina-inferior-derecha {
+    bottom: 10px;
+    right: 10px;
+}
 
         /* Encabezado de nivel 1 */
         h1 {
@@ -161,9 +167,15 @@
     </style>
 </head>
 <body>
+    <audio id="miAudio" autoplay loop>
+        <source src="musicas/musica espacial. planetas y cometas.mp3" type="audio/mp3">
+        <source src="musicas/musica espacial. planetas y cometas.ogg" type="audio/ogg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
     <!-- Imágenes en las esquinas -->
     <img src="./imagenes/nasa.png" alt="Animación esquina superior izquierda" class="esquina-superior-izquierda">
     <img src="./imagenes/wanwan.png" alt="Animación esquina superior derecha" class="esquina-superior-derecha">
+    
 
     <h1>SATORY, AMATEUR ASTRONOMER</h1>
     

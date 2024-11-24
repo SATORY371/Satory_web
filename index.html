@@ -75,22 +75,33 @@
             font-size: 1.2em;
         }
 
-        .esquina-superior-izquierda, .esquina-inferior-derecha {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 10px;
-        }
+        .esquina-superior-izquierda, .esquina-inferior-derecha, 
+.esquina-superior-derecha, .esquina-inferior-izquierda {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
 
-        .esquina-superior-izquierda {
-            top: 10px;
-            left: 10px;
-        }
+.esquina-superior-izquierda {
+    top: 10px;
+    left: 10px;
+}
 
-        .esquina-inferior-derecha {
-            bottom: 10px;
-            right: 10px;
-        }
+.esquina-superior-derecha {
+    top: 10px;
+    right: 10px;
+}
+
+.esquina-inferior-izquierda {
+    bottom: 10px;
+    left: 10px;
+}
+
+.esquina-inferior-derecha {
+    bottom: 10px;
+    right: 10px;
+}
     </style>
     
 </head>
@@ -99,12 +110,13 @@
     <p>Haz clic en los botones para abrir las diferentes páginas:</p>
     <button onclick="abrirPagina('presentacion.html')">Presentación</button>
     <button onclick="abrirPagina('index2.html')">Sesión 09</button>
-    <button onclick="abrirPagina('index3.html')">Área de un Pentágono</button>
+    <button onclick="abrirPagina('FAM.html')">Rincon Anime</button>
     <button onclick="abrirPagina('dolares.html')">Conversor de Soles a Dólares</button>
 
-    <!-- Imágenes en las esquinas -->
     <img src="./imagenes/200w.gif" alt="Animación esquina superior izquierda" class="esquina-superior-izquierda">
-    <img src="./imagenes/200w (1).gif" alt="Animación esquina inferior derecha" class="esquina-inferior-derecha">
+<img src="./imagenes/200w (1).gif" alt="Animación esquina superior derecha" class="esquina-superior-derecha">
+<img src="./imagenes/200w (1).gif" alt="Animación esquina inferior izquierda" class="esquina-inferior-izquierda">
+<img src="./imagenes/200w.gif" alt="Animación esquina inferior derecha" class="esquina-inferior-derecha">
 
     <!-- Video -->
     <video controls width="600" height="340">
@@ -115,6 +127,7 @@
     </video>
 
     <!-- Música de Fondo -->
+
     <audio id="miAudio" autoplay loop>
         <source src="musicas/Take Me There Original Mix.mp3" type="audio/mp3">
         <source src="musicas/Take Me There Original Mix.ogg" type="audio/ogg">
