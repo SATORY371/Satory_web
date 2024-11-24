@@ -124,9 +124,10 @@
         const audio = document.getElementById('miAudio');
         audio.volume = 0.2;
 
-        // Función para abrir páginas en una nueva pestaña
-        function abrirPagina(pagina) {
-            window.open(pagina, '_blank');
+        // Función para abrir páginas en la misma pestaña
+        function abrirPagina(url) {
+            location.href = url; // Redirige a la página en la misma pestaña
+        }
         }
     </script>
 </body>
