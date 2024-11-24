@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SATORY WEB</title>
     <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
-     <audio id="miAudio" autoplay loop>
-        <source src="./musicas/Take Me There Original Mix.mp3" type="audio/mp3">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -96,6 +92,7 @@
             right: 10px;
         }
     </style>
+    
 </head>
 <body>
     <h1>Bienvenido a la Página Principal</h1>
@@ -118,15 +115,17 @@
     </video>
 
     <!-- Música de Fondo -->
-   
+    <audio id="miAudio" autoplay loop>
+        <source src="./musicas/Take Me There Original Mix.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
 
     <script>
         // Ajusta el volumen del audio
         const audio = document.getElementById('miAudio');
         audio.volume = 0.2;
 
-        // Función para abrir páginas en la misma pestaña
-      function abrirPagina(url) {
+        function abrirPagina(url) {
             location.href = url; // Redirige a la página en la misma pestaña
         }
     </script>
