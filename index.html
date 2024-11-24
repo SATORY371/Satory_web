@@ -116,7 +116,8 @@
 
     <!-- Música de Fondo -->
     <audio id="miAudio" autoplay loop>
-        <source src="./musicas/Take Me There Original Mix.mp3" type="audio/mp3">
+        <source src="musicas/Take Me There Original Mix.mp3" type="audio/mp3">
+        <source src="musicas/Take Me There Original Mix.ogg" type="audio/ogg">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
@@ -128,6 +129,12 @@
         function abrirPagina(url) {
             location.href = url; // Redirige a la página en la misma pestaña
         }
+        document.body.addEventListener('click', () => {
+    const audio = document.getElementById('miAudio');
+    if (audio.paused) {
+        audio.play();
+    }
+});
     </script>
 </body>
 </html>
