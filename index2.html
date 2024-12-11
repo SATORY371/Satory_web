@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SATORY SPACE</title>
+    <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
+    <style>
+        
+        body {
+            font-family: Georgia, Cambria, serif;
+            font-size: 16px;
+            color: #00F;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: 0;
+            align-items: center;
+            background-color: #CFC;
+            background-size: cover; 
+            margin: 0;
+            padding: 20px;
+            animation: fondoAnimado 8s infinite;
+            color: white;
+        }
+
+        /* Fondo de respaldo si no carga la imagen */
+        body:before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Asegura que este color quede detrás del contenido */
+        }
+        .esquina-superior-izquierda, .esquina-inferior-derecha, 
+.esquina-superior-derecha, .esquina-inferior-izquierda {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+}
+
+.esquina-superior-izquierda {
+    top: 10px;
+    left: 10px;
+}
+
+.esquina-superior-derecha {
+    top: 10px;
+    right: 10px;
+}
+
+.esquina-inferior-izquierda {
+    bottom: 10px;
+    left: 10px;
+}
+
+.esquina-inferior-derecha {
+    bottom: 10px;
+    right: 10px;
+}
+
+        /* Encabezado de nivel 1 */
+        h1 {
+            font-family: Verdana, Calibri, sans-serif;
+            font-size: 32px;
+            color: #F00;
+        }
+
+        /* Encabezado de nivel 2 */
+        h2 {
+            font-family: Verdana, Calibri, sans-serif;
+            font-size: 24px;
+            color: #A00;
+        }
+        /*encabezado nibel 5 rotativo*/
+        h5{
+            font-family: verdana,cursive,sans-serif;
+            font-size: 15px;
+            color: aqua;
+        }
+        h4{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: rgb(16, 34, 224);
+        }
+        /*cuadro*/
+        .cuadro
+        {
+            color: rgb(39, 209, 187)
+        }
+        /* Campos de datos del libro */
+        .datos-libro {
+            color: #060;
+        }
+
+        /* Texto "Internet" y "Web" como sustantivos */
+        .internet-web {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Texto "Hypertext Markup Language", "Cascading Style Sheets", "HTML", y "CSS" */
+        .destacado {
+            color: #FFF;
+            background-color: #000;
+            font-style: italic;
+            padding: 2px 4px;
+        }
+        .contenedor-cuadro {
+    border: 2px solid #e38e0f;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+}
+.contenedor2-cuadro {
+    border: 2px solid #e38e0f;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #e38e0f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo de las imágenes redondeadas */
+.imagen-redondeada {
+    display: block;
+    margin: 0 auto;
+    border-radius: 5%;
+    max-width: 100%;
+    height: auto;
+}
+.imagen_SUB-redondeada {
+    display: block;
+    margin: 0 auto;
+    border-radius: 5%;
+    max-width: 100%;
+    height: auto;
+}
+/* Estilo de los párrafos destacados */
+.datos-libro {
+    margin-top: 20px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Estilo de texto destacado */
+.destacado {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Estilo de cada cuadro interno */
+.cuadro {
+    margin-bottom: 15px;
+}
+    </style>
+</head>
+<body>
+    <audio id="miAudio" autoplay loop>
+        <source src="musicas/musica espacial. planetas y cometas.mp3" type="audio/mp3">
+        <source src="musicas/musica espacial. planetas y cometas.ogg" type="audio/ogg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <!-- Imágenes en las esquinas -->
+    <img src="./imagenes/nasa.png" alt="Animación esquina superior izquierda" class="esquina-superior-izquierda">
+    <img src="./imagenes/wanwan.png" alt="Animación esquina superior derecha" class="esquina-superior-derecha">
+    
+
+    <h1>SATORY, AMATEUR ASTRONOMER</h1>
+    
+    <div class="contenedor-cuadro">
+        <h2>Voyager 1 y 2: La Misión Interestelar</h2>
+        <img src="./imagenes/neptune.sp.jpg" alt="Imagen redondeada" class="imagen-redondeada">
+        <h4>Imagen de Neptuno tomada por la nave espacial Voyager 2. Imagen crédito: NASA</h4>
+        <div class="cuadro">
+            <p>
+                La NASA ha capturado imágenes impresionantes de cada planeta de nuestro sistema solar. Incluso contamos con 
+                fotografías del distante Neptuno, como se muestra en la imagen de arriba.
+            </p>
+        </div>
+        <div class="cuadro">
+            <p>
+                Neptuno está demasiado lejos para que un astronauta pueda viajar hasta allí con una cámara. Entonces, 
+                ¿cómo tenemos imágenes de lugares tan remotos de nuestro sistema solar?
+            </p>
+        </div>
+        <div class="cuadro">
+            <p>
+                ¡Gracias a dos naves espaciales llamadas Voyager 1 y Voyager 2, que fueron nuestros fotógrafos interplanetarios!
+            </p>
+        </div>
+        
+        <img src="./imagenes/voyager.sp.png" alt="Imagen redondeada" class="imagen-redondeada">
+        <h4>Representación artística de una de las naves espaciales Voyager. Imagen crédito: NASA</h4>
+        <div class="cuadro">
+            <P>Las naves espaciales Voyager 1 y Voyager 2 fueron lanzadas desde la Tierra en 1977 como dos
+             audaces flechas de curiosidad, disparadas hacia el vasto océano del cosmos. Su misión era 
+             explorar los titanes de nuestro sistema solar, Júpiter y Saturno, así como los mundos que 
+             yacen más allá del horizonte estelar. Este viaje fue una odisea sin precedentes; un desafío
+             que ninguna creación humana había emprendido antes.
+             A lo largo de su travesía, las Voyager se convirtieron en ojos cósmicos, capturando
+             decenas de miles de imágenes que revelaron secretos ocultos en los cielos. Sus lentes se 
+             convirtieron en portadores de maravillas, permitiéndonos vislumbrar por primera vez las
+             tormentas furiosas y las nubes danzantes de Júpiter, así como la delicada arquitectura 
+             de los anillos de Saturno, como si fueran joyas suspendidas en la oscuridad del espacio.
+            </P>
+        </div>
+        <img src="./imagenes/jupiter-storm.sp.png" alt="Imagen redondeada" class="imagen-redondeada">
+        <h4>Imagen de las tormentas en Júpiter tomadas por la nave espacial Voyager 1. Crédito: NASA</h4>
+        <div class="cuadro">
+            <P>Voyager 1 y 2 se convirtieron en exploradores intrépidos, revelando un mundo de sorpresas 
+                en su travesía. En su camino, encontraron volcanes activos en Io, una de las lunas de Júpiter, 
+                como si el propio satélite estuviera vivo, respirando fuego en el frío del espacio. Además, 
+                Voyager 2 se aventuró a capturar imágenes de Urano y Neptuno, dos gigantes en la distancia, 
+                añadiendo más capítulos a la historia de su viaje. Juntas, estas astronaves desvelaron la 
+                existencia de 22 lunas, como si estuvieran descubriendo un jardín oculto en el vasto universo.
+            </P>
+            <p>Ahora, las Voyager se han convertido en mensajeras solitarias, alejándose de nosotros 
+                como dos faros que se desvanecen en el horizonte. Han cruzado el umbral hacia el espacio 
+                interestelar, adentrándose en la inmensidad entre las estrellas. Ninguna otra nave ha 
+                recorrido tal distancia, dejando tras de sí un legado de descubrimientos y sueños que 
+                resuenan en el eco del cosmos.               
+            </p>
+        </div>
+        <div class="contenedor2-cuadro">
+            <H2>¿A DONDE IRA VOYAGER DESPUES?</H2>
+            <img src="./imagenes/oort-cloud-snap.sp.png" alt="Imagen SUB redondeada" class="imagen_SUB-redondeada">   
+        </div>
+        <div class="cuadro">
+            <p>Ambas naves Voyager son como mensajeros eternos, enviando sus susurros de conocimiento de regreso a 
+                la Tierra, como ecos de un pasado lejano que nos cuentan sobre las condiciones en los reinos 
+                distantes del sistema solar y el vasto espacio interestelar.
+            </p>
+            <p>Con un corazón lleno de energía y combustible, los Voyager están preparados para seguir operando 
+                hasta el 2025 y más allá, como centinelas que vigilan el universo. Sin embargo, llegará un 
+                momento en que su voz se apagará, y ya no podrán comunicarse con nosotros. Pero, a menos que 
+                algo interrumpa su viaje, seguirán surcando el cosmos, cruzando nuevas constelaciones y 
+                estrellas, como viajeros incansables en una travesía que se extenderá por miles de años.
+            </p>
+            <p>Dentro de cada nave, un mensaje aguarda, un disco de oro que brilla como un faro de esperanza. 
+                Este disco es un cofre del tesoro que contiene escenas y sonidos de la Tierra, así como 
+                melodías y saludos en múltiples lenguas. Si alguna vez una vida inteligente se cruzara con 
+                estas naves errantes, encontraría un fragmento de nuestra esencia, un puente que conecta 
+                mundos y culturas, permitiéndoles conocer nuestra historia y la belleza de nuestra humanidad.
+            </p>
+        </div>
+        <img src="./imagenes/golden-record.sp.png" alt="Imagen redondeada"class="imagen-redondeada">
+        <h4>Foto del disco de oro que se envió al espacio en ambos Voyagers 1 y 2. Imagen crédito: NASA/JPL-Caltech</h4>
+    </div>
+    <p class="datos-libro">
+        Todos a el creador y autor Elvis VEga Q.(SATORY)
+        <span class="destacado">SPACE EX</span> (<span class="destacado">NASA</span>) 
+         <span class="destacado">VOYAGER 1 Y 2</span> .
+    </p>
+    
+</body>
+</html>

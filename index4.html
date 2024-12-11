@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services by Elvis Vega Quispe</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(45deg, #ff5733, #ffc300, #28a745, #6f42c1, #17a2b8);
+            background-size: 400% 400%;
+            animation: moveBackground 10s infinite linear;
+            color: #ffffff;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+
+        /* Background animation */
+        @keyframes moveBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Button styling */
+        .button {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        header, footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        div {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Elvis Vega Quispe's Interactive Services</h1>
+    </header>
+
+    <!-- Buttons -->
+    
+    <div>
+        <a href="sistemas.html" class="button">System Development
+            <p>Diagnosis and repair of computer equipment.</p>
+        </a>
+        <a href="//" class="button">Technical Support
+            <p>Personalized courses for learning digital tools.</p>
+        </a>
+        
+        <a href="//" class="button">Technology Training
+            <p>Design, implementation, and maintenance of advanced IT systems.</p>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2024 Elvis Vega Quispe. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SATORY-TUBE</title>
+    <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 120px;
+            height: auto;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            background-color: white;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .user-menu img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .sidebar li:hover {
+            background-color: #f0f0f0;
+        }
+
+        main {
+            margin-left: 200px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .video-bit{
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: 20000;
+            position: relative; /* Para permitir el posicionamiento relativo del botón */
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative; /* Para permitir el posicionamiento relativo del botón */
+        }
+        .video-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Estilos para el botón de pausa */
+        .pause-btn {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px 20px;  /* Cambiar tamaño del botón */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;  /* Coloca el botón dentro del contenedor */
+            bottom: 20px;        /* Distancia desde el fondo */
+            left: 50%;           /* Centrado horizontal */
+            transform: translateX(-50%); /* Para asegurar que el botón esté perfectamente centrado */
+            font-size: 16px;     /* Tamaño del texto */
+            transition: background-color 0.3s ease; /* Añadido para transición suave */
+        }
+
+        /* Efecto al pasar el ratón por encima del botón */
+        .pause-btn:hover {
+            background-color: #cc0000;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./imagenes/f2627222f10907bf40dd88b58fd61537 (1).jpg" alt="Logo">
+            <span>SATORY-TUBE</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar">
+            <button>🔍</button>
+        </div>
+        <div class="user-menu">
+            <img src="./imagenes/wanwan.png" alt="Usuario">
+        </div>
+    </header>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li>Inicio</li>
+                <li>Tendencias</li>
+                <li>Suscripciones</li>
+                <li>Biblioteca</li>
+                <li>Historial</li>
+            </ul>
+        </nav>
+        <main>
+            <!-- Contenedor para los videos -->
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe 
+                        id="video1" 
+                        src="https://dhtpre.com/embed/jnpsodtm0uxh" 
+                        frameborder="0" 
+                        marginwidth="0" 
+                        marginheight="0" 
+                        scrolling="no" 
+                        width="840" 
+                        height="460" 
+                        allowfullscreen>
+                    </iframe>
+                    <h3>Oh Oh Oh Sexy Vampire - S3RL vs Justin B remix (Sub Español)</h3>
+                    <p>****** • ******</p>
+                    <button class="pause-btn" onclick="togglePause('video1')">Pausar</button>
+                </div>
+                <div class="video-card">
+                    <iframe 
+                        id="video2" 
+                        src="https://dhtpre.com/embed/aqghr8zvcc4o" 
+                        frameborder="0" 
+                        marginwidth="0" 
+                        marginheight="0" 
+                        scrolling="no" 
+                        width="840" 
+                        height="460" 
+                        allowfullscreen>
+                    </iframe>
+                    <h3>Cita Citata - Potong Bebek Jomblo (Official Music Video)</h3>
+                    <p>Canal • Vistas</p>
+                    <button class="pause-btn" onclick="togglePause('video2')">Pausar</button>
+                </div>
+            </div>
+
+            <!-- Tercer video debajo de los primeros dos -->
+            
+            
+        </main>
+        
+    </div>
+    <div class="video-bit">
+        <div class="video-card">
+            <iframe
+                id="video3"
+                src="https://dhtpre.com/embed/ukchtw880btk"
+                frameborder="0"
+                marginwidth="0"
+                marginheight="0"
+                scrolling="no"
+                width="840"
+                height="460"
+                allowfullscreen>
+            </iframe>
+            <h3>Tercer Video</h3>
+            <p>Canal • Vistas</p>
+            <button class="pause-btn" onclick="togglePause('video3')">Pausar</button>
+        </div>
+    </div>
+
+    <script>
+        // Variable global para almacenar el iframe que está reproduciendo
+        let currentVideo = null;
+
+        // Función para pausar o reanudar un video
+        function togglePause(videoId) {
+            const iframe = document.getElementById(videoId);
+            const src = iframe.src;
+
+            // Si ya hay un video reproduciéndose, evitar la recarga
+            if (currentVideo && currentVideo !== iframe) {
+                return; // No hace nada si no es el mismo video
+            }
+
+            // Cambiar el src solo si está pausado
+            if (iframe.src.includes("embed")) {
+                iframe.src = "";  // Pausa el video
+                iframe.src = src; // Restaura el src para permitir la reproducción
+            } else {
+                iframe.src = "";  // Pausa el video
+                iframe.src = src; // Restaura el src para permitir la reproducción
+            }
+
+            // Establecer el video actual como el que está en reproducción
+            currentVideo = iframe;
+        }
+    </script>
+</body>
+</html>

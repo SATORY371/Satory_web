@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('./imagenes/fondo.jpg'); /* Ruta de tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo del botón de descarga */
+        .button {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .button img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .button p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: white;
+        }
+
+        .button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Estilo para el popup de confirmación */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            z-index: 10;
+        }
+
+        .popup img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .popup button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup button.cancel {
+            background-color: #dc3545;
+        }
+
+        .popup button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Enlace para mostrar el popup de confirmación -->
+    <a href="#" class="button" onclick="showPopup()">
+        <img src="./imagenes/image (1).png" alt="CALCULAR">
+        <p>Click to download .exe</p>
+    </a>
+
+    <!-- Popup de confirmación -->
+    <div class="popup" id="confirmationPopup">
+        <img src="./imagenes/confirm_image.png" alt="Confirmación"> <!-- Imagen para la confirmación -->
+        <p>Are you sure you want to download the .exe file?</p>
+        <button onclick="downloadFile()">Yes, download</button>
+        <button class="cancel" onclick="closePopup()">No, cancel</button>
+    </div>
+
+    <script>
+        // Mostrar el popup de confirmación
+        function showPopup() {
+            document.getElementById('confirmationPopup').style.display = 'block';
+        }
+
+        // Cerrar el popup de confirmación
+        function closePopup() {
+            document.getElementById('confirmationPopup').style.display = 'none';
+        }
+
+        // Descargar el archivo .exe
+        function downloadFile() {
+            window.location.href = './ruta/a/tu/archivo.exe'; // Ruta del archivo .exe
+            closePopup(); // Cerrar el popup después de descargar
+        }
+    </script>
+
+</body>
+</html>

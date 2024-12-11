@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SATORY_WEB</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background: linear-gradient(45deg, #ff5733, #ffc300, #28a745, #6f42c1, #17a2b8);
+        background-size: 300% 300%;
+        animation: moveBackground 10s infinite;
+        color: #ffffff;
+    }
+
+    /* Background animation */
+    @keyframes moveBackground {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Grid container for buttons */
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 5 columns */
+        grid-template-rows: repeat(10, 1fr);   /* 10 rows */
+        gap: 30px;
+        padding: 20px;
+        justify-items: center;
+    }
+
+    /* Button styling */
+    .image-button {
+        width: 10cm;
+        height: 5cm;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+        background: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .image-button img {
+        width: 80%;
+        height: 100%;
+        border-radius: 5%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .image-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+    .button {
+        display: inline-block;
+        background-color: transparent; /* Fondo transparente, ya que la imagen lo ocupa */
+        text-align: center;
+        text-decoration: none;
+        border-radius: 8px;
+    }
+
+    .button img {
+        width: 200px; /* Ajusta el tamaño de la imagen si es necesario */
+        height: auto;
+        border-radius: 8px; /* Opcional: bordes redondeados en la imagen */
+    }
+
+    .button p {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #333; /* Color del texto */
+    }
+
+    .button:hover img {
+        opacity: 0.8; /* Efecto hover en la imagen (opacidad) */
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>PERSONAL AND DOWNLOADABLE PROJECTS</h1>
+</header>
+
+<!-- Container for the buttons in grid -->
+<div class="button-container">
+    <a href="calcular.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <button class="image-button" onclick="alert('Button 2 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+2" alt="Button 2">
+    </button>
+    <button class="image-button" onclick="alert('Button 3 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+3" alt="Button 3">
+    </button>
+    <button class="image-button" onclick="alert('Button 4 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+4" alt="Button 4">
+    </button>
+    <button class="image-button" onclick="alert('Button 5 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+5" alt="Button 5">
+    </button>
+
+    <button class="image-button" onclick="alert('Button 6 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+6" alt="Button 6">
+    </button>
+    <button class="image-button" onclick="alert('Button 7 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+7" alt="Button 7">
+    </button>
+    <button class="image-button" onclick="alert('Button 8 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+8" alt="Button 8">
+    </button>
+    <button class="image-button" onclick="alert('Button 9 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+9" alt="Button 9">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button><button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+    <button class="image-button" onclick="alert('Button 10 clicked!')">
+        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
+    </button>
+   
+</div>
+<script>
+    function confirmAction() {
+        // Muestra un mensaje en inglés preguntando si desea continuar o no
+        var result = confirm("Do you want to continue?");
+        
+        // Si el usuario selecciona "OK", continúa con la acción; si selecciona "Cancel", no hace nada
+        if (result) {
+            return true; // Permite la redirección al hacer clic en "OK"
+        } else {
+            return false; // Cancela la acción si se hace clic en "Cancel"
+        }
+    }
+</script>
+
+<footer>
+    <p>© 2024 Elvis Vega Quispe. All rights reserved.</p>
+</footer>
+</body>
+</html>
