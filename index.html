@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SATORY WEB</title>
     <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
+   
     <style>
         
         body {
@@ -29,21 +30,27 @@
         }
 
         button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
+            margin: 15px;
+            padding: 15px 30px;  /* Ajusta el relleno para dar más espacio al texto */
+            font-size: 18px;  /* Aumenta el tamaño de la fuente */
             cursor: pointer;
             background-color: rgba(255, 255, 255, 0.8);
             color: #4caf50;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
             transition: transform 0.3s;
+            min-width: 200px;  /* Asegura un ancho mínimo adecuado */
+            text-align: center;
+            white-space: nowrap;  /* Evita que el texto se divida */
         }
 
-        /* Efecto de reflejo */
+        button:hover {
+            transform: scale(1.1);
+        }
+
         button::after {
             content: '';
             position: absolute;
@@ -56,10 +63,6 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.5s, transform 0.5s;
-        }
-
-        button:hover {
-            transform: scale(1.1);
         }
 
         button:hover::after {
@@ -77,47 +80,48 @@
         }
 
         .esquina-superior-izquierda, .esquina-inferior-derecha, 
-.esquina-superior-derecha, .esquina-inferior-izquierda {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-}
+        .esquina-superior-derecha, .esquina-inferior-izquierda {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+        }
 
-.esquina-superior-izquierda {
-    top: 10px;
-    left: 10px;
-}
+        .esquina-superior-izquierda {
+            top: 10px;
+            left: 10px;
+        }
 
-.esquina-superior-derecha {
-    top: 10px;
-    right: 10px;
-}
+        .esquina-superior-derecha {
+            top: 10px;
+            right: 10px;
+        }
 
-.esquina-inferior-izquierda {
-    bottom: 10px;
-    left: 10px;
-}
+        .esquina-inferior-izquierda {
+            bottom: 10px;
+            left: 10px;
+        }
 
-.esquina-inferior-derecha {
-    bottom: 10px;
-    right: 10px;
-}
+        .esquina-inferior-derecha {
+            bottom: 10px;
+            right: 10px;
+        }
     </style>
-    
 </head>
 <body>
+       
     <h1>Bienvenido a la Página Principal</h1>
     <p>Haz clic en los botones para abrir las diferentes páginas:</p>
     <button onclick="abrirPagina('index4.html')">Presentación</button>
     <button onclick="abrirPagina('index2.html')">Sesión 09</button>
     <button onclick="abrirPagina('FAM.html')">Rincon Anime</button>
-    <button onclick="abrirPagina('index3.html')">PRESENTACION</button>
+    <button onclick="abrirPagina('index3.html')">SATORY-TUBE</button>
+    <button onclick="abrirPagina('ventas.html')">VENTAS</button>
 
     <img src="./imagenes/200w.gif" alt="Animación esquina superior izquierda" class="esquina-superior-izquierda">
-<img src="./imagenes/200w (1).gif" alt="Animación esquina superior derecha" class="esquina-superior-derecha">
-<img src="./imagenes/200w (1).gif" alt="Animación esquina inferior izquierda" class="esquina-inferior-izquierda">
-<img src="./imagenes/200w.gif" alt="Animación esquina inferior derecha" class="esquina-inferior-derecha">
+    <img src="./imagenes/200w (1).gif" alt="Animación esquina superior derecha" class="esquina-superior-derecha">
+    <img src="./imagenes/200w (1).gif" alt="Animación esquina inferior izquierda" class="esquina-inferior-izquierda">
+    <img src="./imagenes/200w.gif" alt="Animación esquina inferior derecha" class="esquina-inferior-derecha">
 
     <!-- Video -->
     <video controls width="600" height="340">
@@ -128,7 +132,6 @@
     </video>
 
     <!-- Música de Fondo -->
-
     <audio id="miAudio" autoplay loop>
         <source src="musicas/Take Me There Original Mix.mp3" type="audio/mp3">
         <source src="musicas/Take Me There Original Mix.ogg" type="audio/ogg">
@@ -138,17 +141,18 @@
     <script>
         // Ajusta el volumen del audio
         const audio = document.getElementById('miAudio');
-        audio.volume = 0.2;
+        audio.volume = 0.1;
 
         function abrirPagina(url) {
             location.href = url; // Redirige a la página en la misma pestaña
         }
+
         document.body.addEventListener('click', () => {
-    const audio = document.getElementById('miAudio');
-    if (audio.paused) {
-        audio.play();
-    }
-});
+            const audio = document.getElementById('miAudio');
+            if (audio.paused) {
+                audio.play();
+            }
+        });
     </script>
 </body>
 </html>

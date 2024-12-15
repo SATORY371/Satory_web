@@ -6,8 +6,14 @@
 <title>SATORY_WEB</title>
 <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
 <style>
+    /* Definir la fuente personalizada */
+    @font-face {
+        font-family: 'GenshinDrip';
+        src: url('./fonts/Genshin Impact DRIP FONT.ttf') format('truetype');
+    }
+
     body {
-        font-family: Arial, sans-serif;
+        font-family: 'GenshinDrip', Arial, sans-serif; /* Aplica la fuente personalizada */
         margin: 0;
         padding: 0;
         text-align: center;
@@ -24,38 +30,17 @@
         100% { background-position: 0% 50%; }
     }
 
-    /* Grid container for buttons */
+    /* Estilo de la cuadrícula para los botones */
     .button-container {
         display: grid;
-        grid-template-columns: repeat(5, 1fr); /* 5 columns */
-        grid-template-rows: repeat(10, 1fr);   /* 10 rows */
-        gap: 30px;
-        padding: 20px;
+        grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+        grid-template-rows: repeat(10, 1fr);   /* 10 filas */
+        gap: 20px;
+        padding: 10px;
         justify-items: center;
     }
 
-    /* Button styling */
-    .image-button {
-        width: 10cm;
-        height: 5cm;
-        cursor: pointer;
-        border: none;
-        padding: 0;
-        background: none;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .image-button img {
-        width: 80%;
-        height: 100%;
-        border-radius: 5%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .image-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    }
+    /* Estilo de los botones con imagen */
     .button {
         display: inline-block;
         background-color: transparent; /* Fondo transparente, ya que la imagen lo ocupa */
@@ -86,70 +71,46 @@
     <h1>PERSONAL AND DOWNLOADABLE PROJECTS</h1>
 </header>
 
-<!-- Container for the buttons in grid -->
+<!-- Contenedor para los botones en una cuadrícula -->
 <div class="button-container">
     <a href="calcular.html" class="button" onclick="return confirmAction()">
         <img src="./imagenes/f.png" alt="CALCULAR">
     </a>
-    <button class="image-button" onclick="alert('Button 2 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+2" alt="Button 2">
-    </button>
-    <button class="image-button" onclick="alert('Button 3 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+3" alt="Button 3">
-    </button>
-    <button class="image-button" onclick="alert('Button 4 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+4" alt="Button 4">
-    </button>
-    <button class="image-button" onclick="alert('Button 5 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+5" alt="Button 5">
-    </button>
-
-    <button class="image-button" onclick="alert('Button 6 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+6" alt="Button 6">
-    </button>
-    <button class="image-button" onclick="alert('Button 7 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+7" alt="Button 7">
-    </button>
-    <button class="image-button" onclick="alert('Button 8 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+8" alt="Button 8">
-    </button>
-    <button class="image-button" onclick="alert('Button 9 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+9" alt="Button 9">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button><button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-    <button class="image-button" onclick="alert('Button 10 clicked!')">
-        <img src="https://via.placeholder.com/500x250?text=Button+10" alt="Button 10">
-    </button>
-   
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
+    <a href="gestion.html" class="button" onclick="return confirmAction()">
+        <img src="./imagenes/f.png" alt="CALCULAR">
+    </a>
 </div>
+
 <script>
     function confirmAction() {
         // Muestra un mensaje en inglés preguntando si desea continuar o no
