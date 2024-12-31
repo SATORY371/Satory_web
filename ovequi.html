@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>OVEQUI</title>
+    <style>
+        /* Estilos anteriores se mantienen igual hasta el .product-card */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .header {
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            background-image: url('heladisimg/ovequi.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .header p {
+            font-size: 1.5rem;
+            margin: 1rem 0 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 3;
+        }
+
+        .logo-left {
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo-right {
+            top: 20px;
+            right: 20px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .navbar {
+            background-color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar a {
+            color: #1976d2;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .navbar a:hover {
+            background-color: #1976d2;
+            color: white;
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Nuevos estilos para el indicador de temporada */
+        .seasonal-banner {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background-color: #ff4444;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .out-of-season {
+            opacity: 0.8;
+        }
+
+        .out-of-season .product-image {
+            filter: grayscale(50%);
+        }
+
+        .availability-info {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+        }
+
+        .season-date {
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .product-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            transition: filter 0.3s;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .nutrition-table th, .nutrition-table td {
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        .nutrition-table th {
+            background-color: #f5f5f5;
+        }
+        
+        .footer {
+            background-color: #1976d2;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            background-image: linear-gradient(45deg, #1976d2, #2196f3);
+        }
+
+        h2 {
+            color: #1976d2;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            color: #2196f3;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo logo-left">
+            <img src="/api/placeholder/100/100" alt="Logo izquierdo">
+        </div>
+        <div class="logo logo-right">
+            <img src="/api/placeholder/100/100" alt="Logo derecho">
+        </div>
+        <div class="header-content">
+            <h1>OVEQUI.</h1>
+            <p>Tradición y calidad desde 2016</p>
+        </div>
+    </header>
+    
+    <nav class="navbar">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    
+    <main class="main-content">
+        <section id="productos">
+            <h2>Nuestros Helados</h2>
+            <div class="product-grid">
+                <!-- Dulce Fusión Helada (En temporada) -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="heladisimg/crema mix.jpg" alt="Helado de Vainilla y Arándanos">
+                    </div>
+                    <h3>Dulce Fusión Helada</h3>
+                    <p>Deliciosa crema de leche de vainilla y arándanos frescos</p>
+                    <div class="availability-info">
+                        <span>🟢 Disponible todo el año</span>
+                    </div>
+                    <h4>Información Nutricional (por 100g)</h4>
+                    <table class="nutrition-table">
+                        <tr>
+                            <th>Calorías</th>
+                            <td>207 kcal</td>
+                        </tr>
+                        <tr>
+                            <th>Grasas</th>
+                            <td>11g</td>
+                        </tr>
+                        <tr>
+                            <th>Carbohidratos</th>
+                            <td>23g</td>
+                        </tr>
+                        <tr>
+                            <th>Proteínas</th>
+                            <td>4g</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Chocolate (Fuera de temporada) <div class="product-card out-of-season"> -->
+                <div class="product-card">
+                    <!--<div class="seasonal-banner">DISPONIBLE</div>-->
+                    <div class="product-image">
+                        <img src="heladisimg/vainilla.png" alt="CREMA DE LECHE DE Vainilla"  width="0"height="0" >
+                        
+                    </div>
+                    <h3>NIEVE DORADA</h3>
+                    <p>Elaborado con leche, vainilla, limon, agua y ayucar.</p>
+                    <div class="availability-info">
+                        <span><!--🔴 Temporalmente no disponible-->🟢 Disponible todo el año</span>
+                        <!--<div class="season-date">Regresa en Marzo 2025</div>--> 
+                    </div>
+                    <h4>Información Nutricional (por 100g)</h4>
+                    <table class="nutrition-table">
+                        <tr>
+                            <th>Calorías</th>
+                            <td>216 kcal</td>
+                        </tr>
+                        <tr>
+                            <th>Grasas</th>
+                            <td>12g</td>
+                        </tr>
+                        <tr>
+                            <th>Carbohidratos</th>
+                            <td>25g</td>
+                        </tr>
+                        <tr>
+                            <th>Proteínas</th>
+                            <td>5g</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Fresa (En temporada) -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="heladisimg/yogut.png" alt="Helado de yogurt">
+                    </div>
+                    <h3>Yogurt</h3>
+                    <p>Con leche, saborisantes naturales y azucar</p>
+                    <div class="availability-info">
+                        <span>🟢 Disponible todo el año</span>
+                        
+                    </div>
+                    <h4>Información Nutricional (por 100g)</h4>
+                    <table class="nutrition-table">
+                        <tr>
+                            <th>Calorías</th>
+                            <td>185 kcal</td>
+                        </tr>
+                        <tr>
+                            <th>Grasas</th>
+                            <td>8g</td>
+                        </tr>
+                        <tr>
+                            <th>Carbohidratos</th>
+                            <td>28g</td>
+                        </tr>
+                        <tr>
+                            <th>Proteínas</th>
+                            <td>3g</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Menta (Fuera de temporada) -->
+                <div class="product-card out-of-season">
+                    <!--<div class="seasonal-banner">FUERA DE TEMPORADA</div>-->
+                    <div class="product-image">
+                        <img src="heladisimg/menta yogurt.png" alt="Helado de Menta">
+                    </div>
+                    <h3>Menta fresca</h3>
+                    <p>Refrescante helado de yogurt sabor menta </p>
+                    <div class="availability-info">
+                        <span> 🟢 Disponible todo el año</span>
+                        <!--<div class="season-date">Regresa en Abril 2025</div>-->
+                    </div>
+                    <h4>Información Nutricional (por 100g)</h4>
+                    <table class="nutrition-table">
+                        <tr>
+                            <th>Calorías</th>
+                            <td>195 kcal</td>
+                        </tr>
+                        <tr>
+                            <th>Grasas</th>
+                            <td>10g</td>
+                        </tr>
+                        <tr>
+                            <th>Carbohidratos</th>
+                            <td>24g</td>
+                        </tr>
+                        <tr>
+                            <th>Proteínas</th>
+                            <td>4g</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Pistache (En temporada) -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="heladisimg/chocolate.png" alt="helado de chocolate">
+                    </div>
+                    <h3>helado de chocolate</h3>
+                    <p>Elaborado con cacao puro de la selva peruana</p>
+                    <div class="availability-info">
+                        <span>🟢 Disponible todo el año</span>
+                        <!--<div class="season-date">Hasta Marzo 2025</div>-->
+                    </div>
+                    <h4>Información Nutricional (por 100g)</h4>
+                    <table class="nutrition-table">
+                        <tr>
+                            <th>Calorías</th>
+                            <td>225 kcal</td>
+                        </tr>
+                        <tr>
+                            <th>Grasas</th>
+                            <td>14g</td>
+                        </tr>
+                        <tr>
+                            <th>Carbohidratos</th>
+                            <td>21g</td>
+                        </tr>
+                        <tr>
+                            <th>Proteínas</th>
+                            <td>6g</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <section id="nosotros">
+            <h2>Sobre Nosotros</h2>
+            <p>En Helados OVEQUI, nos dedicamos a la elaboración artesanal de helados desde 2016. Utilizamos ingredientes naturales de la más alta calidad y recetas tradicionales.</p>
+            <p>Nuestro compromiso con la calidad y la innovación nos ha permitido crear sabores únicos que deleitan a nuestros clientes día a día.</p>
+        </section>
+        
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Dirección: Sin direccion especifica</p>
+            <p>Teléfono: 935011920</p>
+            <p>Email: sin definirse </p>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <p>© 2024 OVEQUI - FINIX VISION CODE - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

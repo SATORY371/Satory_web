@@ -2,266 +2,463 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SATORY-TUBE</title>
-    <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
-
+    <title>SATORY_TUBE</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Mantenemos todos tus estilos originales */
+        * {
             margin: 0;
-            background-color: #f9f9f9;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
 
-        header {
+        body {
+            background-color: #0F0F0F;
+            color: #FFFFFF;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 240px 1fr 350px;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #212121;
+            border-right: 1px solid #3C3C3C;
+            padding: 20px;
+        }
+
+        .sidebar-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #ff0000;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 12px 16px;
+            cursor: pointer;
+            border-radius: 10px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .sidebar-item:hover {
+            background-color: #2F2F2F;
         }
 
-        .logo img {
-            width: 120px;
-            height: auto;
+        .sidebar-item img {
+            width: 24px;
+            margin-right: 16px;
+        }
+
+        /* Contenido principal */
+        .main-content {
+            background-color: #0F0F0F;
+            padding: 24px;
+            overflow-y: auto;
         }
 
         .search-bar {
             display: flex;
             align-items: center;
-            flex: 1;
-            margin: 0 20px;
+            background-color: #212121;
+            border-radius: 20px;
+            padding: 8px 16px;
+            margin-bottom: 20px;
         }
 
         .search-bar input {
-            width: 100%;
-            padding: 5px 10px;
+            flex-grow: 1;
+            background: none;
             border: none;
-            border-radius: 2px;
+            outline: none;
+            color: #FFFFFF;
+            font-size: 16px;
         }
 
         .search-bar button {
-            padding: 5px 10px;
-            background-color: white;
+            background: none;
             border: none;
-            border-radius: 2px;
             cursor: pointer;
+            color: #FFFFFF;
         }
 
-        .user-menu img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .video-container {
+            width: 100%;
+            height: 500px;
+            background-color: #000000;
+            margin-bottom: 20px;
         }
 
-        .container {
-            display: flex;
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
         }
 
-        .sidebar {
-            width: 200px;
-            background-color: white;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            height: 100vh;
+        /* Modificación de las tarjetas para soportar preview */
+        .content-card {
+            position: relative;
+            background-color: #212121;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: scale(1.05);
+        }
+
+        .content-card img.thumbnail {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .preview-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: none;
+        }
+
+        .content-card:hover .preview-video {
+            display: block;
+        }
+
+        .content-card:hover .thumbnail {
+            display: none;
+        }
+
+        .content-info {
+            padding: 12px;
+        }
+
+        .content-info h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .content-info p {
+            font-size: 14px;
+            color: #A0A0A0;
+        }
+
+        /* Contenido recomendado */
+        .recommended-content {
+            background-color: #212121;
+            padding: 20px;
             overflow-y: auto;
         }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar li {
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        .sidebar li:hover {
-            background-color: #f0f0f0;
-        }
-
-        main {
-            margin-left: 200px;
-            padding: 20px;
-            flex: 1;
-        }
-
-        .video-bit{
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: 20000;
-            position: relative; /* Para permitir el posicionamiento relativo del botón */
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
-        }
-
-        .video-card {
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: relative; /* Para permitir el posicionamiento relativo del botón */
-        }
-        .video-card img {
+        /* Player principal */
+        .video-player {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            border-radius: 5px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
-        /* Estilos para el botón de pausa */
-        .pause-btn {
-            background-color: #ff0000;
-            color: white;
-            padding: 10px 20px;  /* Cambiar tamaño del botón */
-            border: none;
-            border-radius: 5px;
+        .video-player.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-player iframe {
+            width: 80%;
+            height: 80%;
+            max-width: 1200px;
+            max-height: 675px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #FFFFFF;
             cursor: pointer;
-            position: absolute;  /* Coloca el botón dentro del contenedor */
-            bottom: 20px;        /* Distancia desde el fondo */
-            left: 50%;           /* Centrado horizontal */
-            transform: translateX(-50%); /* Para asegurar que el botón esté perfectamente centrado */
-            font-size: 16px;     /* Tamaño del texto */
-            transition: background-color 0.3s ease; /* Añadido para transición suave */
         }
 
-        /* Efecto al pasar el ratón por encima del botón */
-        .pause-btn:hover {
-            background-color: #cc0000;
+        /* Nuevo: Mini player */
+        .mini-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 169px;
+            background: #000;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
         }
 
+        .mini-player.active {
+            display: block;
+        }
+
+        .mini-player iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        .mini-player .controls {
+            position: absolute;
+            top: -30px;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 5px;
+            border-radius: 5px;
+        }
+        
+
+        .mini-player .control-btn {
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 2px 8px;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="./imagenes/f2627222f10907bf40dd88b58fd61537 (1).jpg" alt="Logo">
-            <span>SATORY-TUBE</span>
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar">
-            <button>🔍</button>
-        </div>
-        <div class="user-menu">
-            <img src="./imagenes/wanwan.png" alt="Usuario">
-        </div>
-    </header>
     <div class="container">
-        <nav class="sidebar">
-            <ul>
-                <li>Inicio</li>
-                <li>Tendencias</li>
-                <li>Suscripciones</li>
-                <li>Biblioteca</li>
-                <li>Historial</li>
-            </ul>
-        </nav>
-        <main>
-            <!-- Contenedor para los videos -->
-            <div class="video-grid">
-                <div class="video-card">
-                    <iframe 
-                        id="video1" 
-                        src="https://dhtpre.com/embed/jnpsodtm0uxh" 
-                        frameborder="0" 
-                        marginwidth="0" 
-                        marginheight="0" 
-                        scrolling="no" 
-                        width="840" 
-                        height="460" 
-                        allowfullscreen>
-                    </iframe>
-                    <h3>Oh Oh Oh Sexy Vampire - S3RL vs Justin B remix (Sub Español)</h3>
-                    <p>****** • ******</p>
-                    <button class="pause-btn" onclick="togglePause('video1')">Pausar</button>
-                </div>
-                <div class="video-card">
-                    <iframe 
-                        id="video2" 
-                        src="https://dhtpre.com/embed/aqghr8zvcc4o" 
-                        frameborder="0" 
-                        marginwidth="0" 
-                        marginheight="0" 
-                        scrolling="no" 
-                        width="840" 
-                        height="460" 
-                        allowfullscreen>
-                    </iframe>
-                    <h3>Cita Citata - Potong Bebek Jomblo (Official Music Video)</h3>
-                    <p>Canal • Vistas</p>
-                    <button class="pause-btn" onclick="togglePause('video2')">Pausar</button>
-                </div>
+        <!-- Sidebar - mantenido exactamente igual -->
+        <div class="sidebar">
+            <div class="sidebar-item">
+                <img src="imagenes/casa.png" alt="Inicio">
+                Inicio
+            </div>
+            <div class="sidebar-item">
+                <img src="imagenes/2.png" alt="Shorts">
+                light
+            </div>
+            <div class="sidebar-item">
+                <img src="imagenes/subs.png" alt="Suscripciones">
+                Suscripciones
+            </div>
+            <hr>
+            <div class="sidebar-item">
+                <img src="imagenes/guardado.png" alt="Biblioteca">
+                Biblioteca
+            </div>
+            <div class="sidebar-item">
+                <img src="imagenes/histori.png" alt="Historial">
+                Historial
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar">
+                <button>
+                    <img src="imagenes/buscar.png" alt="Buscar" width="20"height="20">
+                </button>
             </div>
 
-            <!-- Tercer video debajo de los primeros dos -->
+            <div class="content-grid">
+                <div class="content-card" data-video-url="https://dhtpre.com/embed/aqghr8zvcc4o">
+                    <img class="thumbnail" src="imagenes/Captura de pantalla 2024-12-20 090002.png" alt="Video 1">
+                    <video class="preview-video" muted loop>
+                        <source src="preview1.mp4" type="video/mp4">
+                    </video>
+                    <div class="content-info">
+                        <h3>Video 1</h3>
+                        <p>Canal 1</p>
+                    </div>
+                </div>
             
+                <div class="content-card" data-video-url="https://dhtpre.com/embed/ukchtw880btk">
+                    <img class="thumbnail" SRC="https://dhtpre.com/embed/jnpsodtm0uxh"  alt="Video 2">
+                    <video class="preview-video" muted loop>
+                        <source src="preview2.mp4" type="video/mp4">
+                    </video>
+                    <div class="content-info">
+                        <h3>Video 2</h3>
+                        <p>Canal 2</p>
+                    </div>
+                </div>
             
-        </main>
-        
-    </div>
-    <div class="video-bit">
-        <div class="video-card">
-            <iframe
-                id="video3"
-                src="https://dhtpre.com/embed/ukchtw880btk"
-                frameborder="0"
-                marginwidth="0"
-                marginheight="0"
-                scrolling="no"
-                width="840"
-                height="460"
-                allowfullscreen>
-            </iframe>
-            <h3>Tercer Video</h3>
-            <p>Canal • Vistas</p>
-            <button class="pause-btn" onclick="togglePause('video3')">Pausar</button>
+                <div class="content-card" data-video-url="https://dhtpre.com/embed/jnpsodtm0uxh">
+                    <img class="thumbnail" SRC="https://dhtpre.com/embed/jnpsodtm0uxh"  alt="Video 3">
+                    <video class="preview-video" muted loop>
+                        <source src="preview3.mp4" type="video/mp4">
+                    </video>
+                    <div class="content-info">
+                        <h3>Video 3</h3>
+                        <p>Canal 3</p>
+                    </div>
+                </div>
+            
+                <div class="content-card" data-video-url="https://dhtpre.com/embed/1pcl237gj02w">
+                    <img class="thumbnail" src="https://dhtpre.com/embed/aqghr8zvcc4o" alt="Video 4">
+                    <video class="preview-video" muted loop>
+                        <source src="https://dhtpre.com/embed/aqghr8zvcc4o" type="video/mp4">
+                    </video>
+                    <div class="content-info">
+                        <h3>Video 4</h3>
+                        <p>Canal 4</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Contenido recomendado -->
+        <div class="recommended-content">
+            <h3>Contenido recomendado</h3>
+        </div>
+    </div>
+
+    <!-- Video player principal -->
+    <div class="video-player">
+        <iframe src="" frameborder="0" allowfullscreen></iframe>
+        <div class="close-button">✕</div>
+    </div>
+
+    <!-- Nuevo: Mini player -->
+    <div class="mini-player">
+        <div class="controls">
+            <button class="control-btn restore-btn">⤢</button>
+            <button class="control-btn close-mini-btn">✕</button>
+        </div>
+        <iframe src="" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <script>
-        // Variable global para almacenar el iframe que está reproduciendo
-        let currentVideo = null;
+        const contentCards = document.querySelectorAll('.content-card');
+const videoPlayer = document.querySelector('.video-player');
+const videoIframe = videoPlayer.querySelector('iframe');
+const closeButton = videoPlayer.querySelector('.close-button');
+const miniPlayer = document.querySelector('.mini-player');
+const miniPlayerIframe = miniPlayer.querySelector('iframe');
+const restoreBtn = document.querySelector('.restore-btn');
+const closeMiniBtn = document.querySelector('.close-mini-btn');
 
-        // Función para pausar o reanudar un video
-        function togglePause(videoId) {
-            const iframe = document.getElementById(videoId);
-            const src = iframe.src;
-
-            // Si ya hay un video reproduciéndose, evitar la recarga
-            if (currentVideo && currentVideo !== iframe) {
-                return; // No hace nada si no es el mismo video
+// Preview al hacer hover
+contentCards.forEach(card => {
+    const previewVideo = card.querySelector('.preview-video');
+    
+    card.addEventListener('mouseenter', () => {
+        // Detener cualquier otro video que esté reproduciéndose
+        document.querySelectorAll('.preview-video').forEach(video => {
+            if (video !== previewVideo) {
+                video.pause();
+                video.currentTime = 0;
             }
-
-            // Cambiar el src solo si está pausado
-            if (iframe.src.includes("embed")) {
-                iframe.src = "";  // Pausa el video
-                iframe.src = src; // Restaura el src para permitir la reproducción
-            } else {
-                iframe.src = "";  // Pausa el video
-                iframe.src = src; // Restaura el src para permitir la reproducción
-            }
-
-            // Establecer el video actual como el que está en reproducción
-            currentVideo = iframe;
+        });
+        
+        if (previewVideo.readyState >= 3) {
+            previewVideo.play();
         }
+    });
+
+    card.addEventListener('mouseleave', () => {
+        previewVideo.pause();
+        previewVideo.currentTime = 0;
+    });
+
+    card.addEventListener('click', () => {
+        // Usar la URL definida en el data-video-url
+        const videoUrl = card.dataset.videoUrl;
+        
+        // Si hay un video minimizado, detenerlo
+        if (miniPlayer.classList.contains('active')) {
+            miniPlayer.classList.remove('active');
+            miniPlayerIframe.src = '';
+        }
+        
+        videoIframe.src = videoUrl;
+        videoPlayer.classList.add('active');
+    });
+});
+
+// Minimizar video
+closeButton.addEventListener('click', () => {
+    // Solo minimizar si no hay otro video reproduciéndose
+    if (!miniPlayer.classList.contains('active')) {
+        videoPlayer.classList.remove('active');
+        miniPlayer.classList.add('active');
+        miniPlayerIframe.src = videoIframe.src;
+        videoIframe.src = '';
+    }
+});
+
+// Restaurar video
+restoreBtn.addEventListener('click', () => {
+    videoPlayer.classList.add('active');
+    miniPlayer.classList.remove('active');
+    videoIframe.src = miniPlayerIframe.src;
+    miniPlayerIframe.src = '';
+});
+
+// Cerrar mini player
+closeMiniBtn.addEventListener('click', () => {
+    miniPlayer.classList.remove('active');
+    miniPlayerIframe.src = '';
+});
+
+// Función para agregar más videos actualizada
+function addVideo(title, channel, thumbnailUrl, videoUrl) {
+    const contentGrid = document.querySelector('.content-grid');
+    const videoCard = document.createElement('div');
+    videoCard.className = 'content-card';
+    videoCard.dataset.videoUrl = videoUrl; // Agregamos la URL del video
+    
+    videoCard.innerHTML = `
+        <img class="thumbnail" src="${thumbnailUrl}" alt="${title}">
+        <video class="preview-video" muted loop>
+            <source src="${thumbnailUrl}" type="video/mp4">
+        </video>
+        <div class="content-info">
+            <h3>${title}</h3>
+            <p>${channel}</p>
+        </div>
+    `;
+
+    // Agregar los mismos event listeners que tienen las otras cards
+    const previewVideo = videoCard.querySelector('.preview-video');
+    
+    videoCard.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.preview-video').forEach(video => {
+            if (video !== previewVideo) {
+                video.pause();
+                video.currentTime = 0;
+            }
+        });
+        
+        if (previewVideo.readyState >= 3) {
+            previewVideo.play();
+        }
+    });
+
+    videoCard.addEventListener('mouseleave', () => {
+        previewVideo.pause();
+        previewVideo.currentTime = 0;
+    });
+
+    videoCard.addEventListener('click', () => {
+        if (miniPlayer.classList.contains('active')) {
+            miniPlayer.classList.remove('active');
+            miniPlayerIframe.src = '';
+        }
+        videoIframe.src = videoUrl;
+        videoPlayer.classList.add('active');
+    });
+
+    contentGrid.appendChild(videoCard);
+}
     </script>
 </body>
-</html>
+</html> 
