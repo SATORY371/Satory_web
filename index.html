@@ -3,174 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SATORY WEB</title>
+    <title>SATORY WEB | Portfolio de Proyectos</title>
     <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        
-        body {
-            
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, #ff5f6d, #ffc371, #42e695, #3a7bd5);
-            background-size: 300% 300%;
-            animation: fondoAnimado 8s infinite;
-            color: white;
-        }
 
-        @keyframes fondoAnimado {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        button {
-    margin: 15px;
-    padding: 18px 20px; /* Ajusta el relleno para dar más espacio al texto */
-    font-size: 18px; /* Aumenta el tamaño de la fuente */
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #3a31bb;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s;
-    min-width: 200px; /* Asegura un ancho mínimo adecuado */
-    text-align: center; /* Centra horizontalmente */
-    display: flex; /* Establece un modelo de caja flexible */
-    justify-content: center; /* Centra horizontalmente con flexbox */
-    align-items: center; /* Centra verticalmente con flexbox */
-    white-space: nowrap; /* Evita que el texto se divida */
-}
-
-        button:hover {
-            transform: scale(1.1);
-        }
-
-        button::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(120deg, rgba(44, 174, 174, 0.5), rgba(255, 255, 255, 0));
-            transform: rotate(45deg);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s, transform 0.5s;
-        }
-
-        button:hover::after {
-            opacity: 1;
-            transform: rotate(45deg) translate(50%, 50%);
-        }
-
-        h1 {
-        font-size: 2.5em;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Sombra más fuerte */
-        background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-        color: white; /* Aseguramos que el texto sea blanco */
-        padding: 10px 20px; /* Espacio alrededor del texto */
-        border-radius: 10px; /* Bordes redondeados */
-        display: inline-block; /* Evita que el fondo ocupe toda la línea */
-    }
-
-    p {
-        font-size: 1.2em;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6); /* Mejora la legibilidad */
-        background: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
-        color: white;
-        padding: 5px 15px;
-        border-radius: 5px;
-        display: inline-block;
-    }
-
-        .esquina-superior-izquierda, .esquina-inferior-derecha, 
-        .esquina-superior-derecha, .esquina-inferior-izquierda {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 10px;
-        }
-
-        .esquina-superior-izquierda {
-            top: 10px;
-            left: 10px;
-        }
-
-        .esquina-superior-derecha {
-            top: 10px;
-            right: 10px;
-        }
-
-        .esquina-inferior-izquierda {
-            bottom: 10px;
-            left: 10px;
-        }
-
-        .esquina-inferior-derecha {
-            bottom: 10px;
-            right: 10px;
-        }
     </style>
 </head>
 <body>
-       <p></p>
-       <p></p>
-       <p></p>
-    <h1>Welcome to the Home Pagel</h1>
-    <p>Welcome to the home page Click on the buttons to open the different pages:</p>
-    <button onclick="abrirPagina('index4.html')">Presentación</button>
-    <button onclick="abrirPagina('index2.html')">Sesión 09</button>
-    <button onclick="abrirPagina('Calculadora.html')">Examen</button>
-    <button onclick="abrirPagina('FAM.html')">Rincon Anime</button>
-    <button onclick="abrirPagina('index3.html')">SATORY-TUBE</button>
-    <button onclick="abrirPagina('ventas.html')">VENTAS</button>
+    <button id="muteButton" aria-label="Silenciar o activar sonido">
+        <i id="muteIcon" class="fas fa-volume-up"></i>
+    </button>
 
-    <img src="./imagenes/200w.gif" alt="Animación esquina superior izquierda" class="esquina-superior-izquierda">
-    <img src="./imagenes/200w (1).gif" alt="Animación esquina superior derecha" class="esquina-superior-derecha">
-    <img src="./imagenes/200w (1).gif" alt="Animación esquina inferior izquierda" class="esquina-inferior-izquierda">
-    <img src="./imagenes/200w.gif" alt="Animación esquina inferior derecha" class="esquina-inferior-derecha">
+    <div class="container">
+        <h1>Welcome to SATORY WEB</h1>
+        <p>Explore my portfolio and skills. Click the buttons to open the different sections:</p>
 
-    <!-- Video -->
-    <video controls width="600" height="340">
-        <source src="./media/ssstik.io_1722344764077.mp4" type="video/mp4">
-        <source src="./media/ssstik.io_1722344764077.webm" type="video/webm">
-        Tu navegador no soporta la etiqueta <code>video</code>. Descarga el video 
-        <a href="./media/ssstik.io_1722344764077.mp4">aquí</a>.
-    </video>
 
-    <!-- Música de Fondo -->
-    <audio id="miAudio" autoplay loop>
-        <source src="musicas/Take Me There Original Mix.mp3" type="audio/mp3">
-        <source src="musicas/Take Me There Original Mix.ogg" type="audio/ogg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
+        <div class="button-grid">
+            <button onclick="abrirPagina('index4.html')">
+                <i class="fas fa-file-alt"></i> Presentación
+            </button>
+            <button onclick="abrirPagina('https://www.okidokitravelperu.com/')">
+            <i class="fas fa-code"></i>PROYECTO
+            </button>
 
-    <script>
-        // Ajusta el volumen del audio
-        const audio = document.getElementById('miAudio');
-        audio.volume = 0.1;
+            </button>
+            <button onclick="abrirPagina('Calculadora.html')">
+                <i class="fas fa-calculator"></i> Examen
+            </button>
+            <button onclick="abrirPagina('FAM.html')">
+                <i class="fas fa-heart"></i> Rincón Anime
+            </button>
+            <button onclick="abrirPagina('index3.html')">
+                <i class="fab fa-youtube"></i> SATORY-TUBE
+            </button>
+            <button onclick="abrirPagina('ventas.html')">
+                <i class="fas fa-shopping-cart"></i> VENTAS
+            </button>
+        </div>
 
-        function abrirPagina(url) {
-            location.href = url; // Redirige a la página en la misma pestaña
-        }
+        <video controls width="600" height="340" preload="metadata" aria-label="Video de bienvenida al portfolio">
+            <source src="./media/ssstik.io_1722344764077.mp4" type="video/mp4">
+            <source src="./media/ssstik.io_1722344764077.webm" type="video/webm">
+            <p>Tu navegador no soporta la etiqueta de video. Puedes descargar el video <a href="./media/ssstik.io_1722344764077.mp4" download>aquí</a>.</p>
+        </video>
 
-        document.body.addEventListener('click', () => {
-            const audio = document.getElementById('miAudio');
-            if (audio.paused) {
-                audio.play();
-            }
-        });
-    </script>
+        <audio id="miAudio" autoplay loop controls aria-label="Música de fondo del sitio">
+            <source src="musicas/Take Me There Original Mix.mp3" type="audio/mp3">
+            <source src="musicas/Take Me There Original Mix.ogg" type="audio/ogg">
+            <p>Tu navegador no soporta el elemento de audio.</p>
+        </audio>
+
+        <div id="visit-counter-display">
+            Visitas en este navegador: <span id="visit-count">0</span>
+        </div>
+    </div>
+
+    <img src="./imagenes/200w.gif" alt="Animación decorativa de esquina" class="corner-animation esquina-superior-izquierda" aria-hidden="true">
+    <img src="./imagenes/200w (1).gif" alt="Animación decorativa de esquina" class="corner-animation esquina-superior-derecha" aria-hidden="true">
+    <img src="./imagenes/200w (1).gif" alt="Animación decorativa de esquina" class="corner-animation esquina-inferior-izquierda" aria-hidden="true">
+    <img src="./imagenes/200w.gif" alt="Animación decorativa de esquina" class="corner-animation esquina-inferior-derecha" aria-hidden="true">
+
+    <img src="imagenes/200w.gif" alt="Sticker decorativo de código" class="sticker sticker-1" style="--initial-rotation: 5deg;">
+    <img src="imagenes/200w.gif" alt="Sticker decorativo de personaje anime" class="sticker sticker-2" style="--initial-rotation: -8deg;">
+    <img src="./imagenes/200w (1).gif" alt="Sticker decorativo de nube" class="sticker sticker-3" style="--initial-rotation: 10deg;">
+    <img src="./imagenes/200w (1).gif" alt="Sticker decorativo de estrella" class="sticker sticker-4" style="--initial-rotation: -3deg;">
+
+    <script src="funciones.js"></script>
 </body>
 </html>
