@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,43 +13,50 @@
 
     </style>
 </head>
+
 <body>
     <button id="muteButton" aria-label="Silenciar o activar sonido">
         <i id="muteIcon" class="fas fa-volume-up"></i>
     </button>
 
     <div class="container">
-        <h1>Welcome to SATORY WEB</h1>
-        <p>Explore my portfolio and skills. Click the buttons to open the different sections:</p>
+        <section id="hero">
+            <h1>SATORY PORTFOLIO</h1>
+            <p>Welcome to my digital workspace. Explore my projects and creations below.</p>
+        </section>
 
-
-        <div class="button-grid">
+        <section id="projects" class="button-grid">
             <button onclick="abrirPagina('index4.html')">
-                <i class="fas fa-file-alt"></i> Presentación
+                <i class="fas fa-file-alt"></i>
+                <span>Presentación</span>
             </button>
             <button onclick="abrirPagina('https://satory371.github.io/EBOOK/')">
-            <i class="fas fa-code"></i>PROYECTO
+                <i class="fas fa-code"></i>
+                <span>PROYECTO</span>
             </button>
-
-            </button>
-            <button onclick="abrirPagina('Calculadora.html')">
-                <i class="fas fa-calculator"></i> Examen
+            <button onclick="abrirPagina('PELECOLAS.html')">
+                <i class="fas fa-film"></i>
+                <span>PELECOLAS</span>
             </button>
             <button onclick="abrirPagina('FAM.html')">
-                <i class="fas fa-heart"></i> Rincón Anime
+                <i class="fas fa-heart"></i>
+                <span>Rincón Anime</span>
             </button>
             <button onclick="abrirPagina('index3.html')">
-                <i class="fab fa-youtube"></i> SATORY-TUBE
+                <i class="fab fa-youtube"></i>
+                <span>SATORY-TUBE</span>
             </button>
             <button onclick="abrirPagina('ventas.html')">
-                <i class="fas fa-shopping-cart"></i> VENTAS
+                <i class="fas fa-shopping-cart"></i>
+                <span>VENTAS</span>
             </button>
-        </div>
+        </section>
 
         <video controls width="600" height="340" preload="metadata" aria-label="Video de bienvenida al portfolio">
             <source src="./media/ssstik.io_1722344764077.mp4" type="video/mp4">
             <source src="./media/ssstik.io_1722344764077.webm" type="video/webm">
-            <p>Tu navegador no soporta la etiqueta de video. Puedes descargar el video <a href="./media/ssstik.io_1722344764077.mp4" download>aquí</a>.</p>
+            <p>Tu navegador no soporta la etiqueta de video. Puedes descargar el video <a
+                    href="./media/ssstik.io_1722344764077.mp4" download>aquí</a>.</p>
         </video>
 
         <audio id="miAudio" autoplay loop controls aria-label="Música de fondo del sitio">
@@ -58,20 +66,29 @@
         </audio>
 
         <div id="visit-counter-display">
-            Visitas en este navegador: <span id="visit-count">0</span>
+            Visitas: <span id="visit-count">0</span>
         </div>
     </div>
 
-    <img src="./imagenes/200w.gif" alt="Animación decorativa de esquina" class="corner-animation esquina-superior-izquierda" aria-hidden="true">
-    <img src="./imagenes/200w (1).gif" alt="Animación decorativa de esquina" class="corner-animation esquina-superior-derecha" aria-hidden="true">
-    <img src="./imagenes/200w (1).gif" alt="Animación decorativa de esquina" class="corner-animation esquina-inferior-izquierda" aria-hidden="true">
-    <img src="./imagenes/200w.gif" alt="Animación decorativa de esquina" class="corner-animation esquina-inferior-derecha" aria-hidden="true">
+    <img src="./imagenes/200w.gif" alt="Animación decorativa de esquina"
+        class="corner-animation esquina-superior-izquierda" aria-hidden="true">
+    <img src="./imagenes/200w (1).gif" alt="Animación decorativa de esquina"
+        class="corner-animation esquina-superior-derecha" aria-hidden="true">
+    <img src="./imagenes/200w (1).gif" alt="Animación decorativa de esquina"
+        class="corner-animation esquina-inferior-izquierda" aria-hidden="true">
+    <img src="./imagenes/200w.gif" alt="Animación decorativa de esquina"
+        class="corner-animation esquina-inferior-derecha" aria-hidden="true">
 
-    <img src="imagenes/200w.gif" alt="Sticker decorativo de código" class="sticker sticker-1" style="--initial-rotation: 5deg;">
-    <img src="imagenes/200w.gif" alt="Sticker decorativo de personaje anime" class="sticker sticker-2" style="--initial-rotation: -8deg;">
-    <img src="./imagenes/200w (1).gif" alt="Sticker decorativo de nube" class="sticker sticker-3" style="--initial-rotation: 10deg;">
-    <img src="./imagenes/200w (1).gif" alt="Sticker decorativo de estrella" class="sticker sticker-4" style="--initial-rotation: -3deg;">
+    <img src="imagenes/200w.gif" alt="Sticker decorativo de código" class="sticker sticker-1"
+        style="--initial-rotation: 5deg;">
+    <img src="imagenes/200w.gif" alt="Sticker decorativo de personaje anime" class="sticker sticker-2"
+        style="--initial-rotation: -8deg;">
+    <img src="./imagenes/200w (1).gif" alt="Sticker decorativo de nube" class="sticker sticker-3"
+        style="--initial-rotation: 10deg;">
+    <img src="./imagenes/200w (1).gif" alt="Sticker decorativo de estrella" class="sticker sticker-4"
+        style="--initial-rotation: -3deg;">
 
     <script src="funciones.js"></script>
 </body>
+
 </html>

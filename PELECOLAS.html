@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PELECOLAS - Streaming Extremo</title>
+    <!-- Vinculando el CSS correctamente -->
+    <link rel="stylesheet" href="stile.css">
+    <!-- Fuentes de Google Fonts para un look moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Raleway:wght@300;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">PELECOLAS</div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Películas</a>
+            <a href="#">Series</a>
+            <a href="#">Top Mas Vistas</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Bievenido al Futuro del Streaming</h1>
+        <p>Las mejores películas de servidores externos. Sin limites.</p>
+        <button onclick="scrollToGrid()">Ver Catálogo</button>
+    </div>
+
+    <div class="container" id="catalogo">
+        <h2>Catálogo Estelar</h2>
+        <div class="movie-grid" id="movieGrid">
+            <!-- Las películas se insertarán aquí con JS -->
+        </div>
+    </div>
+
+    <!-- Modal para el reproductor -->
+    <div id="playerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="videoContainer">
+                <!-- Aquí irá el iframe -->
+            </div>
+            <h3 id="movieTitle"></h3>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PELECOLAS. Contenido alojado en servidores externos.</p>
+    </footer>
+
+    <!-- Vinculando el JS correctamente -->
+    <script src="scrip.js"></script>
+</body>
+
+</html>

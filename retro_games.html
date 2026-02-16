@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroNexus | Gestor de Inventario</title>
+
+    <!-- Google Fonts for Cyberpunk/Retro Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/retro_games.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="background-grid"></div>
+    <div class="scanline"></div>
+
+    <header class="neon-header">
+        <div class="logo-container">
+            <i class="fa-solid fa-gamepad logo-icon"></i>
+            <h1>RETRO<span class="flicker">NEXUS</span></h1>
+        </div>
+        <p class="subtitle">SISTEMA v2.0 // CONTROL DE INVENTARIO</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Product Form Section -->
+        <section class="cyber-card form-section">
+            <h2 class="section-title"><i class="fa-solid fa-plus-circle"></i> NUEVO REGISTRO</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="nombre">NOMBRE DEL ÍTEM <span class="required">*</span></label>
+                        <input type="text" id="nombre" placeholder="ej. Super Metroid" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="unidad">PLATAFORMA / FORMATO <span class="required">*</span></label>
+                        <select id="unidad" required>
+                            <option value="">SELECCIONAR FORMATO</option>
+                            <option value="Nintendo 64">Nintendo 64</option>
+                            <option value="SNES">SNES</option>
+                            <option value="PlayStation 1">PlayStation 1</option>
+                            <option value="Sega Genesis">Sega Genesis</option>
+                            <option value="Game Boy">Game Boy</option>
+                            <option value="Hardware">Consola/Hardware</option>
+                            <option value="Accesorio">Accesorio</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="precio">PRECIO (CRÉDITOS) <span class="required">*</span></label>
+                        <input type="number" id="precio" step="0.01" min="0" placeholder="0.00" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="stock">CANTIDAD STOCK <span class="required">*</span></label>
+                        <input type="number" id="stock" min="0" placeholder="0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="estado">CONDICIÓN <span class="required">*</span></label>
+                        <select id="estado" required>
+                            <option value="Activo">Activo (Por Defecto)</option>
+                            <option value="Sellado">Sellado / Nuevo</option>
+                            <option value="Completo">Completo en Caja</option>
+                            <option value="Suelto">Cartucho/Disco Suelto</option>
+                            <option value="Dañado">Dañado / Para Repuestos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="cyber-btn save-btn">
+                        <span class="btn-text">GUARDAR EN BASE DE DATOS</span>
+                        <span class="btn-glitch"></span>
+                    </button>
+                    <button type="button" id="cancelBtn" class="cyber-btn cancel-btn" style="display: none;">
+                        <span class="btn-text">CANCELAR</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Product Table Section -->
+        <section class="cyber-card table-section">
+            <header class="table-header">
+                <h2 class="section-title"><i class="fa-solid fa-database"></i> BASE DE DATOS DE INVENTARIO</h2>
+                <div class="search-box">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="BUSCAR EN SISTEMA...">
+                </div>
+            </header>
+
+            <div class="table-responsive">
+                <table id="productsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NOMBRE ÍTEM</th>
+                            <th>PLATAFORMA</th>
+                            <th>PRECIO</th>
+                            <th>STOCK</th>
+                            <th>CONDICIÓN</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows rendered via JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <i class="fa-solid fa-ghost"></i>
+                <p>NO SE ENCONTRARON DATOS EN EL SECTOR 7</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="cyber-footer">
+        <p>SISTEMA RETRO NEXUS // COPYRIGHT 2026 // FIN DE LÍNEA_</p>
+    </footer>
+
+    <!-- Logic Script -->
+    <script src="js/retro_games.js"></script>
+</body>
+
+</html>

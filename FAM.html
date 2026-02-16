@@ -1,49 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rincon Anime</title>
+    <title>ANIMALAND POS | Foro Anime</title>
     <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: 0;
-    align-items: center;
-    background: url('imagenes/HIKARI\ BLUE\ ARCHIBE\ 14.png') no-repeat center center fixed;
-    background-size: cover; /* Ajusta la imagen para que cubra toda la pantalla */
-    color: white;
-}
-h1 {
-            font-size: 2.5em;
-            text-shadow: 2px 2px 10px rgb(255, 4, 4);
-            color: rgb(43, 255, 0);
-        }
-h2{
-    font-size: 2.5em;
-    text-shadow: 2px 2px 10px rgb(255, 255, 255);
-    color: rgb(43, 255, 0);
-}
-        p {
-            font-size: 1.2em;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="FAM.css">
 </head>
+
 <body>
-    <h1>Bienvenido a mi página con fondo</h1>s
-    <p>Esta página tiene una imagen de fondo configurada correctamente.</p>
-    <!-- Reproductor de video -->
-    <h2>Video:</h2>
-    <!-- Incrustar video de YouTube usando iframe -->
-    <iframe 
-    src="https://dhtpre.com/embed/1pcl237gj02w" 
-    frameborder="0" marginwidth="0" marginheight="0" 
-    scrolling="no" width="640" height="360" allowfullscreen>
-</iframe>
+
+    <div class="container">
+        <a href="index.html" class="back-btn" aria-label="Volver al inicio"><i class="fas fa-arrow-left"></i></a>
+
+        <div class="forum-header">
+            <h1>ANIMALAND POS</h1>
+            <p>Comparte tus cosplays, fanarts y momentos favoritos.</p>
+        </div>
+
+        <!-- Categorías / Filtros -->
+        <div class="category-filter">
+            <button class="filter-btn active" onclick="filterPosts('all')">Todo</button>
+            <button class="filter-btn" onclick="filterPosts('cosplay')">Cosplays</button>
+            <button class="filter-btn" onclick="filterPosts('noticias')">Noticias</button>
+            <button class="filter-btn" onclick="filterPosts('juegos')">Juegos</button>
+            <button class="filter-btn" onclick="filterPosts('fanart')">Fanart</button>
+        </div>
+
+
+
+        <!-- Grid de Posts -->
+        <div class="forum-grid" id="forumGrid">
+
+            <!-- Post de Ejemplo 1 -->
+            <div class="forum-post">
+                <img src="https://i.pinimg.com/736x/2a/3b/b3/2a3bb3bf483b8f2252c5054700d72f10.jpg" alt="Anime Art">
+                <div class="forum-post-content">
+                    <h4>Cyberpunk Edgerunners</h4>
+                    <p>Increíble fanart de Lucy.</p>
+                </div>
+            </div>
+
+            <!-- Post de Ejemplo 2 -->
+            <div class="forum-post">
+                <img src="https://wallpapers.com/images/hd/cool-anime-character-pfp-v525676771.jpg" alt="Anime Icon">
+                <div class="forum-post-content">
+                    <h4>Nuevo Icono</h4>
+                    <p>¿Qué opinan de este estilo?</p>
+                </div>
+            </div>
+
+            <!-- Post de Ejemplo 3 (Video embed simulado como imagen o real) -->
+            <div class="forum-post">
+                <img src="https://c4.wallpaperflare.com/wallpaper/295/163/719/anime-anime-boys-picture-in-picture-kimetsu-no-yaiba-kamado-tanjir%C5%8D-hd-wallpaper-preview.jpg"
+                    alt="Demon Slayer">
+                <div class="forum-post-content">
+                    <h4>Tanjiro Kamado</h4>
+                    <p>Esperando la nueva temporada.</p>
+                </div>
+            </div>
+
+            <div class="forum-post">
+                <img src="https://images5.alphacoders.com/126/1263728.jpg" alt="Cosplay">
+                <div class="forum-post-content">
+                    <h4>Eve - Chainsaw Man</h4>
+                    <p>Un cosplay impresionante.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <footer>
+        <!-- Aviso de Moderación / Contacto (Movido al final y ancho completo) -->
+        <div class="post-form-container">
+            <h3>¿Quieres publicar aquí?</h3>
+            <p>Para asegurar la calidad y seguridad de la comunidad (0% NSFW),
+                todo el contenido es moderado.</p>
+            <p>Contacta directamente con el <span>Programador</span> para enviar tus fotos de Cosplay o Anime.</p>
+            <a href="https://wa.me/51904818986" target="_blank" class="button">
+                <i class="fab fa-whatsapp"></i> Contactar para Publicar
+            </a>
+            <p class="copyright">&copy; 2026 ANIMALAND
+                POS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script src="FAM.js"></script>
 </body>
+
 </html>

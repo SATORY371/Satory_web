@@ -1,0 +1,219 @@
+body {
+    background: url('imagenes/HIKARI BLUE ARCHIBE 14.png') no-repeat center center fixed;
+    background-size: cover;
+    padding: 0 !important;
+    justify-content: flex-start;
+    height: auto;
+}
+
+/* --- Fluid Layout & Forum Styles --- */
+.container {
+    max-width: 100%;
+    /* Full width */
+    margin-top: 20px;
+    margin-bottom: 0;
+    width: 96%;
+    /* 2% padding on each side effective */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-btn {
+    position: fixed;
+    /* Fixed to always be accessible */
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    background: var(--primary-neon);
+    box-shadow: 0 0 15px var(--primary-neon);
+    transform: scale(1.1);
+}
+
+/* Category Filters */
+.category-filter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary-neon);
+    color: black;
+    box-shadow: 0 0 10px var(--primary-neon);
+    transform: translateY(-2px);
+}
+
+.forum-header {
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 60px;
+    /* Space for fixed back button */
+}
+
+/* Fluid Masonry Grid */
+.forum-grid {
+    column-count: 5;
+    /* Default for large screens */
+    column-gap: 15px;
+    width: 100%;
+}
+
+.forum-post {
+    break-inside: avoid;
+    margin-bottom: 15px;
+    background: rgba(20, 20, 25, 0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+    opacity: 0;
+    /* For scroll animation */
+    transform: translateY(20px);
+}
+
+.forum-post.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.forum-post:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-neon);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.forum-post img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.forum-post-content {
+    padding: 15px;
+    text-align: left;
+}
+
+.forum-post h4 {
+    margin: 0 0 5px 0;
+    color: var(--primary-neon);
+    font-size: 1em;
+}
+
+.forum-post p {
+    color: #ccc;
+    font-size: 0.85em;
+    margin: 0;
+}
+
+/* Responsive Columns */
+@media (max-width: 1600px) {
+    .forum-grid {
+        column-count: 4;
+    }
+}
+
+@media (max-width: 1200px) {
+    .forum-grid {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 900px) {
+    .forum-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .forum-grid {
+        column-count: 1;
+        /* Mobile single column */
+    }
+
+    .forum-grid {
+        display: flex;
+        /* Better for infinite scroll flow on mobile */
+        flex-direction: column;
+    }
+}
+
+/* Footer Styles moved from inline */
+footer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 1px solid var(--glass-border);
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+footer .post-form-container {
+    text-align: center;
+    margin: 0 auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    max-width: 800px;
+    /* Ensure content is centered and readable */
+}
+
+footer h3 {
+    margin: 0;
+    color: var(--accent-neon);
+    font-size: 1.8em;
+}
+
+footer p {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+footer a.button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--primary-neon);
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+footer .copyright {
+    margin-top: 30px;
+    font-size: 0.9em;
+    opacity: 0.7;
+    color: var(--text-dim);
+}

@@ -1,87 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services by Elvis Vega Quispe</title>
+    <title>Proyectos | Portfolio Satory</title>
     <link rel="icon" type="image/png" href="./imagenes/DALL_E-2024-11-18-09.52-removebg-preview (1).ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* Body styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background: linear-gradient(45deg, #ff5733, #ffc300, #28a745, #6f42c1, #17a2b8);
-            background-size: 400% 400%;
-            animation: moveBackground 10s infinite linear;
-            color: #ffffff;
-            height: 100vh;
-            overflow: hidden;
-        }
-        
-
-        /* Background animation */
-        @keyframes moveBackground {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Specific page override: Allow container to be wider for the grid */
+        .container {
+            max-width: 1200px;
         }
 
-        /* Button styling */
-        .button {
-            display: inline-block;
-            margin: 20px;
-            padding: 20px 40px;
-            font-size: 1.2em;
-            color: #ffffff;
-            background: rgba(0, 0, 0, 0.7);
-            border: none;
-            border-radius: 10px;
+        /* Back button styling */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
             text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s;
         }
 
-        .button:hover {
-            transform: scale(1.1);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        header, footer {
-            position: relative;
-            z-index: 1;
-        }
-
-        div {
-            position: relative;
-            z-index: 1;
+        .back-btn:hover {
+            background: var(--primary-neon);
+            box-shadow: 0 0 15px var(--primary-neon);
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to Elvis Vega Quispe's Interactive Services</h1>
-    </header>
 
-    <!-- Buttons -->
-    
-    <div>
-        <a href="sistemas.html" class="button">System Development
-            <p>Diagnosis and repair of computer equipment.</p>
-        </a>
-        <a href="//" class="button">Technical Support
-            <p>Personalized courses for learning digital tools.</p>
-        </a>
-        
-        <a href="//" class="button">Technology Training
-            <p>Design, implementation, and maintenance of advanced IT systems.</p>
-        </a>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-btn" aria-label="Volver al inicio"><i class="fas fa-arrow-left"></i></a>
+
+        <section id="hero">
+            <h1>MIS PROYECTOS</h1>
+            <p>Explora la galería de aplicaciones y desarrollos.</p>
+        </section>
+
+        <section class="project-grid">
+
+            <!-- Card 1: Satory Tube -->
+            <a href="index3.html" class="project-card card-streaming" data-tilt>
+                <i class="fab fa-youtube"></i>
+                <h3>SATORY TUBE</h3>
+                <p>Plataforma de streaming de video con interfaz moderna.</p>
+            </a>
+
+            <!-- Card 2: PELECOLAS -->
+            <a href="PELECOLAS.html" class="project-card card-tools" data-tilt>
+                <i class="fas fa-film"></i>
+                <h3>PELECOLAS</h3>
+                <p>Tu catalogo de peliculas favoritas en linea.</p>
+            </a>
+
+            <!-- Card 3: Rincón Anime -->
+            <a href="FAM.html" class="project-card card-anime" data-tilt>
+                <i class="fas fa-heart"></i>
+                <h3>Rincón Anime</h3>
+                <p>Galería y colección de favoritos para fans del anime.</p>
+            </a>
+
+            <!-- Card 4: Ventas -->
+            <a href="ventas.html" class="project-card" data-tilt>
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Sistema de Ventas</h3>
+                <p>Dashboard de comercio electrónico y gestión de productos.</p>
+            </a>
+
+            <!-- Card 5: Presentación -->
+            <a href="https://satory371.github.io/EBOOK/" class="project-card card-tools" data-tilt>
+                <i class="fas fa-code"></i>
+                <h3>E-BOOK Project</h3>
+                <p>Documentación y proyecto de libro electrónico.</p>
+            </a>
+
+        </section>
+
+        <div id="visit-counter-display">
+            Galería activa
+        </div>
     </div>
 
-    <footer>
-        <p>© 2024 Elvis Vega Quispe. All rights reserved.</p>
-    </footer>
+    <!-- Decorative Stickers -->
+    <img src="./imagenes/200w.gif" alt="" class="sticker sticker-1">
+    <img src="./imagenes/200w (1).gif" alt="" class="sticker sticker-4">
+
+    <!-- 3D Tilt Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('[data-tilt]');
+
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // x position within the element.
+                    const y = e.clientY - rect.top;  // y position within the element.
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = ((y - centerY) / centerY) * -15; // Max rotation deg
+                    const rotateY = ((x - centerX) / centerX) * 15;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
